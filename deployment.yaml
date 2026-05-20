@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loss-prevention-deployment
+  labels:
+    app: loss-prevention-api
+spec:
+  replicas: 3 # Kubernetes pilnuje, aby zawsze działały 3 kopie aplikacji!
+  selector:
+    matchLabels:
+      app: loss-prevention-api
+  template:
+    metadata:
+      labels:
+        app: loss-prevention-api
+    spec:
+      containers:
+      - name: api-container
+        # TODO 1: Wpisz nazwę i tag obrazu Docker, który ma zostać uruchomiony
+        image: 
+        
+        ports:
+        # TODO 2: Podaj numer portu kontenera (containerPort), który otworzyliśmy w Dockerze
+        - containerPort: 
+        
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

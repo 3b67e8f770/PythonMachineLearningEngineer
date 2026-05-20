@@ -32,3 +32,12 @@ jobs:
       - name: Uruchomienie testów
         run: |
           pytest test_process.py
+
+      - name: Instalacja wsparcia dla dockera
+        uses : |
+          docker/setup-buildx-action@v3
+      
+      - name : Checking Dockerfile and requirements
+        run : |
+          docker build -t loss-prevention-api:latest .
+      
